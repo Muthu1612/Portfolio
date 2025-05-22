@@ -1,0 +1,6 @@
+@layer components {
+  .brand {
+    font-size: 1.5rem; /* equivalent to text-2xl */
+    font-weight: 700;  /* equivalent to font-bold */
+  }
+}

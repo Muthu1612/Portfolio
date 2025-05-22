@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global layout & theme tweaks */
+@import "./styles/layout.css";
+@import "./styles/typography.css";

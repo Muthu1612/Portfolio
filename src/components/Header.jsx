@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom';
+import '../styles/layout.css';
+import '../styles/typography.css';
 
 const Header = () => {
   return (
-    <header className="bg-gray-900 text-white shadow-md">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Muthu</h1>
-        <nav className="space-x-6">
-          <Link to="/" className="hover:text-teal-400 transition">Home</Link>
-          <Link to="/skills" className="hover:text-teal-400 transition">Skills</Link>
-          <Link to="/projects" className="hover:text-teal-400 transition">Projects</Link>
+    <header className="header">
+      <div className="header-container">
+        <h1 className="brand">Muthu</h1>
+        <nav className="nav-links">
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/skills" className="nav-link">Skills</Link>
+          <Link to="/projects" className="nav-link">Projects</Link>
         </nav>
       </div>
     </header>
