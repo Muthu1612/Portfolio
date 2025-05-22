@@ -24,13 +24,13 @@ const skills = {
 const Skills = () => {
   return (
     <Layout>
-      <div className="p-8">
-        <h1 className="text-4xl font-bold text-center mb-12">My Technical Skills</h1>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="skills-section">
+        <h1 className="skills-title">My Technical Skills</h1>
+        <div className="skills-grid">
           {Object.entries(skills).map(([category, items]) => (
-            <div key={category} className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h2 className="text-xl font-semibold mb-4 text-teal-400">{category}</h2>
-              <ul className="space-y-2 list-disc list-inside text-gray-300">
+            <div key={category} className="skills-card">
+              <h2 className="skills-card-title">{category}</h2>
+              <ul className="skills-list">
                 {items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}

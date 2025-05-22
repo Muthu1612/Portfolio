@@ -28,9 +28,9 @@ const projects = [
 const Projects = () => {
   return (
     <Layout>
-      <div className="p-8">
+      <div className="projects-section">
         <motion.h1
-          className="text-4xl font-bold text-center mb-12"
+          className="projects-title"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -38,33 +38,28 @@ const Projects = () => {
           Projects
         </motion.h1>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="projects-grid">
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
-              className="bg-gray-800 p-6 rounded-lg shadow-lg"
+              className="project-card"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
             >
-              <h2 className="text-xl font-semibold text-teal-400 mb-2">{project.title}</h2>
-              <p className="text-gray-300 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <h2 className="project-title">{project.title}</h2>
+              <p className="project-description">{project.description}</p>
+              <div className="project-stack">
                 {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-sm bg-teal-700 text-white px-2 py-1 rounded"
-                  >
-                    {tech}
-                  </span>
+                  <span key={tech} className="project-tech">{tech}</span>
                 ))}
               </div>
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-teal-400 hover:underline"
+                className="project-link"
               >
                 View on GitHub →
               </a>
