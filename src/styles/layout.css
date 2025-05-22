@@ -6,7 +6,7 @@
   .header {
     background-color: #111827; /* Equivalent to bg-gray-900 */
     color: #fff; /* Equivalent to text-white */
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06); /* Equivalent to shadow-md */
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06); /* shadow-md */
   }
 
   .header-container {
@@ -17,15 +17,14 @@
     padding-right: 1rem;
     padding-top: 1rem; /* py-4 */
     padding-bottom: 1rem;
-    display: flex; /* flex */
-    justify-content: space-between; /* justify-between */
-    align-items: center; /* items-center */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .nav-links {
-    /* space-x-6 */
     display: flex;
-    gap: 1.5rem;
+    gap: 1.5rem; /* space-x-6 */
   }
 
   .nav-link {
@@ -34,4 +33,70 @@
   .nav-link:hover {
     color: #2dd4bf; /* text-teal-400 */
   }
+
+  /* ✅ Footer Styles */
+  .footer {
+    background-color: #1f2937; /* bg-gray-800 */
+    color: #9ca3af; /* text-gray-400 */
+    text-align: center;
+    padding-top: 1.5rem; /* py-6 */
+    padding-bottom: 1.5rem;
+    margin-top: 5rem; /* mt-20 */
+  }
+
+  .hero-section {
+    background: linear-gradient(to bottom right, #1f2937, #000000, #1f2937); /* Tailwind's gradient from-gray-900 via-black to-gray-900 */
+    color: #ffffff; /* text-white */
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 1.5rem; /* px-6 */
+    padding-right: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 800; /* font-extrabold */
+    margin-bottom: 1rem; /* mb-4 */
+  }
+
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 3.75rem; /* md:text-6xl */
+    }
+
+    .hero-text {
+      font-size: 1.5rem; /* md:text-2xl */
+    }
+  }
+
+  .hero-highlight {
+    color: #2dd4bf; /* text-teal-400 */
+  }
+
+  .hero-text {
+    font-size: 1.25rem; /* text-xl */
+    color: #d1d5db; /* text-gray-300 */
+    max-width: 42rem; /* max-w-2xl */
+  }
+
+  .hero-button {
+    margin-top: 2rem; /* mt-8 */
+    display: inline-block;
+    background-color: #14b8a6; /* bg-teal-500 */
+    color: #ffffff;
+    padding: 0.75rem 1.5rem; /* py-3 px-6 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    transition: background-color 0.3s;
+  }
+
+  .hero-button:hover {
+    background-color: #0d9488; /* hover:bg-teal-600 */
+  }
+  
 }
