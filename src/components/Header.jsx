@@ -9,7 +9,7 @@ const Header = () => {
   const location = useLocation();
 
   // Check if current page is Skills or Projects
-  const isDarkPage = ['/projects'].includes(location.pathname);
+  const isDarkPage = ['/skills', '/projects'].includes(location.pathname);
 
   const handleScroll = () => {
     if (window.pageYOffset > 50 && navbarExpanded) {
