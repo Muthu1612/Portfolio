@@ -3,25 +3,75 @@
 @tailwind utilities;
 
 @layer components {
-  .header {
-    background-color: #111827; /* Equivalent to bg-gray-900 */
-    color: #fff; /* Equivalent to text-white */
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06); /* shadow-md */
-  }
 
-  .header-container {
-    max-width: 72rem; /* max-w-6xl */
-    margin-left: auto; /* mx-auto */
-    margin-right: auto;
-    padding-left: 1rem; /* px-4 */
-    padding-right: 1rem;
-    padding-top: 1rem; /* py-4 */
-    padding-bottom: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+main {
+  padding-top: 80px; /* Must match your header height */
+}
 
+.header {
+  background-color: rgba(27, 27, 27, 0.85);
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  transition: background 0.35s ease 0.15s, padding 0.35s ease;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.header-container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* For dark pages where header starts opaque */
+.header.dark {
+  background-color: rgba(27, 27, 27, 0.85) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+
+.brand {
+  color: #fff;
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 1.5rem;
+  transition: color 0.35s ease-in-out;
+}
+
+.brand:hover {
+  color: #fed136;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.whiteLink {
+  color: #fff;
+  font-family: "Montserrat-Regular", sans-serif;
+  transition: color 0.35s ease-in-out;
+}
+
+.whiteLink:hover {
+  color: #fed136;
+}
+
+@media (max-width: 768px) {
+  .brand {
+    padding-left: 0;
+  }
+  
+  .whiteLink {
+    padding-left: 2px;
+  }
+}
   .nav-links {
     display: flex;
     gap: 1.5rem; /* space-x-6 */
