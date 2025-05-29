@@ -5,43 +5,56 @@ import '../styles/typography.css';
 
 const Header = () => {
   const [navbarExpanded, setNavbarExpanded] = useState(true);
-  const [transparency, setTransparency] = useState(0.0);
+  const [transparency, setTransparency] = useState(0.0); // Start with light page default
   const location = useLocation();
 
-  // Check if current page is Skills or Projects
-  const isDarkPage = ['/skills', '/projects'].includes(location.pathname);
+  // Check if current page is a dark page
+  const isDarkPage = ['/projects', '/skills'].includes(location.pathname);
 
   const handleScroll = () => {
-    if (window.pageYOffset > 50 && navbarExpanded) {
-      setNavbarExpanded(false);
-    } else if (window.pageYOffset < 50 && !navbarExpanded) {
-      setNavbarExpanded(true);
-    }
+    const scrollTop = window.pageYOffset;
     
-    // On dark pages, start with higher transparency (darker)
-    const maxTransparency = isDarkPage ? 0.0 : 1;
-    const scrollThreshold = isDarkPage ? 0 : 500;
-    
-    if (window.pageYOffset > scrollThreshold) {
-      setTransparency(maxTransparency);
+    // Configuration for different page types
+    const darkPageConfig = {
+      initial: 0.75,  // Start slightly more visible on dark pages
+      target: 1,     // Full opacity
+      threshold: 300 // Scroll distance to reach full opacity
+    };
+
+    const lightPageConfig = {
+      initial: 0.0,  // Start more transparent on light pages
+      target: 1,
+      threshold: 300
+    };
+
+    const config = isDarkPage ? darkPageConfig : lightPageConfig;
+
+    // Calculate new transparency based on scroll position
+    if (scrollTop >= config.threshold) {
+      setTransparency(config.target);
     } else {
-      setTransparency(isDarkPage ? maxTransparency : window.pageYOffset / 500.0);
+      const progress = scrollTop / config.threshold;
+      const newTransparency = config.initial + (config.target - config.initial) * progress;
+      setTransparency(newTransparency);
     }
+
+    // Header shrink logic
+    setNavbarExpanded(scrollTop <= 50);
   };
 
   useEffect(() => {
-    // Set initial transparency based on page
-    if (isDarkPage) {
-      setTransparency(0.0); // More opaque by default
-    } else {
-      setTransparency(0.0); // More transparent by default
-    }
-    
+    // Set initial transparency when page loads or changes
+    const initialTransparency = isDarkPage ? 0.75 : 0.0;
+    setTransparency(initialTransparency);
+
+    // Add scroll listener
     window.addEventListener('scroll', handleScroll);
+    
+    // Cleanup
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [navbarExpanded, isDarkPage]);
+  }, [location.pathname, isDarkPage]);
 
   return (
     <header 
@@ -49,6 +62,7 @@ const Header = () => {
       style={{
         backgroundColor: `rgba(27, 27, 27, ${transparency})`,
         backdropFilter: `blur(${transparency * 5}px)`,
+        transition: 'background-color 0.4s ease-in-out, backdrop-filter 0.4s ease-in-out'
       }}
     >
       <div className="header-container">
