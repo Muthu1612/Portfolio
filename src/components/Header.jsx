@@ -18,13 +18,13 @@ const Header = () => {
     const darkPageConfig = {
       initial: 0.75,  // Start slightly more visible on dark pages
       target: 1,     // Full opacity
-      threshold: 300 // Scroll distance to reach full opacity
+      threshold: 700 // Scroll distance to reach full opacity
     };
 
     const lightPageConfig = {
       initial: 0.0,  // Start more transparent on light pages
       target: 1,
-      threshold: 300
+      threshold: 700
     };
 
     const config = isDarkPage ? darkPageConfig : lightPageConfig;
