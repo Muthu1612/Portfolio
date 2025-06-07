@@ -301,28 +301,4 @@ main {
   text-decoration: underline;
 }
 
-  .featured-project-container {
-    @apply max-w-5xl mx-auto;
-  }
-  
-  .featured-project-image {
-    @apply w-full h-auto rounded-lg shadow-xl object-cover max-h-[400px];
-  }
-  
-  .tech-badge {
-    @apply bg-gray-800 px-4 py-2 rounded-md text-sm font-medium text-white;
-  }
-  
-  .project-button {
-    @apply inline-block px-6 py-3 rounded-md font-semibold transition-colors duration-300;
-  }
-  
-  .project-button-primary {
-    @apply bg-white text-black hover:bg-gray-200;
-  }
-  
-  .project-button-secondary {
-    @apply border border-white text-white hover:bg-white hover:text-black;
-  }
-
 }
