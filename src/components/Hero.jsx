@@ -32,7 +32,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.4 }}
       >
-         I’m a full-stack engineer with a backend bias and a soft spot for clean architecture, noisy data, and big clouds. Currently building smarter pipelines, scalable systems, and occasionally debugging the universe one log at a time.
+         I’m a full-stack engineer with a soft spot for clean architecture, noisy data, and big clouds. Currently building smarter pipelines, scalable systems, and occasionally debugging the universe one log at a time.
       </motion.p>
 
       {/* Buttons wrapper without inline styles */}
