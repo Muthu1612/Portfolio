@@ -13,10 +13,10 @@ const FeaturedProject = () => {
         Latest Project
       </motion.h2>
 
-      <div className="flex flex-col lg:flex-row items-center gap-8 mx-auto" style={{ maxWidth: '84rem' }}>
-        {/* Image Section */}
+      <div className="flex flex-col lg:flex-row items-center gap-8 mx-auto max-w-6xl">
+        {/* Image Section - Adjusted to prevent stretching */}
         <motion.div 
-          className="w-full lg:w-5/12"
+          className="w-full lg:w-1/2 flex justify-center"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -24,14 +24,13 @@ const FeaturedProject = () => {
           <img
             src={featuredImage}
             alt="Featured Project"
-            className="w-full h-auto rounded-lg shadow-xl object-cover"
-            style={{ maxHeight: '400px' }}
+            className="rounded-lg shadow-xl object-contain max-h-[400px] w-auto"
           />
         </motion.div>
 
         {/* Text Section */}
         <motion.div
-          className="w-full lg:w-7/12 lg:pl-8"
+          className="w-full lg:w-1/2"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -39,7 +38,7 @@ const FeaturedProject = () => {
           <h3 className="text-3xl font-bold mb-4">Gatorcan: E-learning platform</h3>
           <p className="text-gray-300 mb-6 text-lg leading-relaxed">
             GatorCan is a full-stack educational platform designed to enhance the academic experience for students and instructors. 
-GatorCan allows for efficient course management, assignment submissions as well as intuitive collaboration.
+            GatorCan allows for efficient course management, assignment submissions as well as intuitive collaboration.
           </p>
 
           <h4 className="font-medium mb-3 text-xl">Developed with</h4>
