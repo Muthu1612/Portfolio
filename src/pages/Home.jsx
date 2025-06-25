@@ -2,13 +2,32 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import FeaturedProject from '../components/FeaturedProject';
+import Skills from './Skills';
+import Projects from './Projects';
 
 const Home = () => {
   return (
     <>
       <Header />
-      <Hero />
-      <FeaturedProject />
+
+      <main>
+        <section id="hero">
+          <Hero />
+        </section>
+
+        <section id="featured">
+          <FeaturedProject />
+        </section>
+
+        <section id="skills">
+          <Skills />
+        </section>
+
+        <section id="projects">
+          <Projects />
+        </section>
+      </main>
+
       <Footer />
     </>
   );

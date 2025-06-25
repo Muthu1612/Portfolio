@@ -1,12 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer components {
-
-main {
-  padding-top: 80px; /* Must match your header height */
-}
 
 .header {
   background-color: transparent; /* Changed from fixed value */
@@ -87,7 +79,6 @@ main {
   text-align: center;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  margin-top: 5rem;
 }
 
 .hero-section {
@@ -299,6 +290,26 @@ main {
 
 .project-link:hover {
   text-decoration: underline;
+}
+
+
+html {
+  scroll-padding-top: 60px;
+  scroll-behavior: smooth;
+}
+
+/* nav link highlight */
+.nav-link.active {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 2px;
+}
+
+/* optionally shrink header size when collapsed */
+.header-container {
+  transition: padding 0.3s;
+}
+.header:not(.expanded) .header-container {
+  padding: 0.6rem 1rem;
 }
 
 }
