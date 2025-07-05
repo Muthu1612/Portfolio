@@ -5,6 +5,7 @@ import FeaturedProject from '../components/FeaturedProject';
 import Skills from './Skills';
 import Projects from './Projects';
 import Contact from '../components/Contact';
+import Timeline from '../components/Timeline'
 
 const Home = () => {
   return (
@@ -20,6 +21,10 @@ const Home = () => {
           <FeaturedProject />
         </section>
 
+        <section id="timeline">
+          <Timeline />
+        </section>
+        
         <section id="skills">
           <Skills />
         </section>

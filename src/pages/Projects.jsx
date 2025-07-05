@@ -1,5 +1,8 @@
+// src/pages/Projects.js (or wherever you keep it)
+
 import { motion } from 'framer-motion';
 import Layout from '../layouts/Layout';
+import '../styles/project.css'; // Make sure to import your CSS!
 
 const projects = [
   {
@@ -23,12 +26,26 @@ const projects = [
     stack: ["Python", "NLP", "Deep Learning"],
     link: "https://github.com/Muthu1612/Voice-based-virtual-assistant-using-Deep-Learning",
   },
+  {
+    title: "Placeholder Project 1",
+    description:
+      "This is a placeholder project to showcase horizontal scrolling.",
+    stack: ["React", "CSS"],
+    link: "#",
+  },
+  {
+    title: "Placeholder Project 2",
+    description:
+      "Another example project card to test the scroll and animation.",
+    stack: ["Next.js", "TypeScript"],
+    link: "#",
+  },
 ];
 
 const Projects = () => {
   return (
     <Layout>
-      <div className="projects-section">
+      <div className="projects-wrapper">
         <motion.h1
           className="projects-title"
           initial={{ opacity: 0, y: -30 }}
@@ -38,13 +55,18 @@ const Projects = () => {
           Projects
         </motion.h1>
 
-        <div className="projects-grid">
+        <motion.div
+          className="projects-scroll"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
               className="project-card"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
             >
@@ -65,7 +87,7 @@ const Projects = () => {
               </a>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </Layout>
   );

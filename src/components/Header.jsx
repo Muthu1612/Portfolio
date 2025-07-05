@@ -5,8 +5,10 @@ import '../styles/typography.css';
 
 const NAV_ITEMS = [
   { label: 'Home', target: 'hero' },
+  { label: 'About Me', target: 'timeline'},
   { label: 'Skills', target: 'skills' },
   { label: 'Projects', target: 'projects' },
+  { label: 'Contact', target: 'contact'},
 ];
 
 const Header = () => {
