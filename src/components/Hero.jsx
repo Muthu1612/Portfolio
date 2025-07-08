@@ -12,11 +12,8 @@ const Hero = () => {
     document.body.removeChild(link);
   };
 
-
-
-
   return (
-    <section className="hero-section">
+    <section className="hero-section" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <motion.h2
         className="hero-title"
         initial={{ opacity: 0, y: -30 }}
@@ -35,7 +32,6 @@ const Hero = () => {
          I’m a full-stack engineer with a soft spot for clean architecture, noisy data, and scalable cloud platforms. Currently building smarter pipelines, scalable systems, and occasionally debugging the universe one log at a time.
       </motion.p>
 
-      {/* Buttons wrapper without inline styles */}
       <motion.div
         className="hero-buttons"
         initial={{ opacity: 0 }}

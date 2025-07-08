@@ -17,7 +17,7 @@ const FeaturedProject = ({ project }) => {
   const currentProject = project || defaultProject;
 
   return (
-    <section className="featured-section">
+    <section className="featured-section" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <motion.h2
         className="featured-heading"
         initial={{ opacity: 0, y: -30 }}

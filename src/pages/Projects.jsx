@@ -112,7 +112,7 @@ const Projects = () => {
 
   return (
     <Layout>
-      <div className="projects-wrapper">
+      <div className="projects-wrapper" style={{ minHeight: '100vh', flexDirection: 'column', justifyContent: 'center' }}>
         <motion.h1
           className="projects-title"
           initial={{ opacity: 0, y: -30 }}

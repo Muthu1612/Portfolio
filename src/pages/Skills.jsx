@@ -36,7 +36,7 @@ const cardVariants = {
 
 const Skills = () => (
   <Layout>
-    <div className="skills-section">
+    <div className="skills-section" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <motion.h1
         className="skills-title"
         initial={{ opacity: 0, y: -20 }}

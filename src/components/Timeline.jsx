@@ -55,7 +55,7 @@ const ExperienceTimeline = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
-    <section className="timeline-section">
+    <section className="timeline-section" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <motion.h2
         className="timeline-heading"
         initial={{ opacity: 0, y: -30 }}

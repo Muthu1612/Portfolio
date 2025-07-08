@@ -4,7 +4,7 @@ import '../styles/contact.css'; // ✅ Import your custom CSS!
 
 const Contact = () => {
   return (
-    <section className="contact-section">
+    <section className="contact-section" style={{ minHeight: '100vh', flexDirection: 'column', justifyContent: 'center' }}>
       <div className="contact-container">
         <div className="contact-header">
           <h1 className="contact-title">Hello there :)</h1>
