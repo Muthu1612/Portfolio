@@ -1,7 +1,9 @@
 // src/pages/Projects.js (or wherever you keep it)
 
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import Layout from '../layouts/Layout';
+import ProjectModal from '../components/ProjectModal';
 import '../styles/project.css'; // Make sure to import your CSS!
 
 const projects = [
@@ -11,6 +13,14 @@ const projects = [
       "Adaptive Kubernetes controller using PID logic for optimizing CPU utilization across clusters with 30% oscillatory variance.",
     stack: ["Kubernetes", "Go", "PID", "Prometheus"],
     link: "https://github.com/Muthu1612/Feedback-Driven-Resource-Controller-for-Kubernetes-Clusters",
+    image: "/src/assets/featured-project.png",
+    features: [
+      "Real-time CPU utilization monitoring and optimization",
+      "PID controller implementation for resource management",
+      "30% reduction in oscillatory variance",
+      "Prometheus integration for metrics collection",
+      "Scalable architecture for large Kubernetes clusters"
+    ]
   },
   {
     title: "GatorCan: E-Learning Platform",
@@ -18,6 +28,14 @@ const projects = [
       "Scalable platform with course management and collaboration. Built with Golang, React, and AWS ECS/RDS/S3.",
     stack: ["Golang", "React.js", "AWS", "SQLite"],
     link: "https://github.com/itswael/GatorCan",
+    image: "/src/assets/featured-project.png",
+    features: [
+      "Course creation and management system",
+      "Real-time collaboration features",
+      "AWS cloud infrastructure deployment",
+      "User authentication and authorization",
+      "Responsive design for multiple devices"
+    ]
   },
   {
     title: "Voice-based Virtual Assistant",
@@ -25,6 +43,14 @@ const projects = [
       "Deep learning-based voice assistant with 95% intent recognition accuracy. Improves query resolution by 30%.",
     stack: ["Python", "NLP", "Deep Learning"],
     link: "https://github.com/Muthu1612/Voice-based-virtual-assistant-using-Deep-Learning",
+    image: "/src/assets/featured-project.png",
+    features: [
+      "95% intent recognition accuracy",
+      "Natural language processing capabilities",
+      "Voice-to-text and text-to-speech integration",
+      "30% improvement in query resolution",
+      "Customizable response system"
+    ]
   },
   {
     title: "Placeholder Project 1",
@@ -32,6 +58,13 @@ const projects = [
       "This is a placeholder project to showcase horizontal scrolling.",
     stack: ["React", "CSS"],
     link: "#",
+    image: "/src/assets/featured-project.png",
+    features: [
+      "Responsive design implementation",
+      "Modern UI/UX principles",
+      "Cross-browser compatibility",
+      "Performance optimization"
+    ]
   },
   {
     title: "Placeholder Project 2",
@@ -39,10 +72,44 @@ const projects = [
       "Another example project card to test the scroll and animation.",
     stack: ["Next.js", "TypeScript"],
     link: "#",
+    image: "/src/assets/featured-project.png",
+    features: [
+      "TypeScript implementation",
+      "Next.js framework utilization",
+      "Server-side rendering",
+      "SEO optimization"
+    ]
+  },
+  {
+    title: "Placeholder Project 3",
+    description:
+      "Another example project card to test the scroll and animation.",
+    stack: ["Next.js", "TypeScript"],
+    link: "#",
+    image: "/src/assets/featured-project.png",
+    features: [
+      "TypeScript implementation",
+      "Next.js framework utilization",
+      "Server-side rendering",
+      "SEO optimization"
+    ]
   },
 ];
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <Layout>
       <div className="projects-wrapper">
@@ -69,6 +136,8 @@ const Projects = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
+              onClick={() => handleProjectClick(project)}
+              style={{ cursor: 'pointer' }}
             >
               <h2 className="project-title">{project.title}</h2>
               <p className="project-description">{project.description}</p>
@@ -77,17 +146,18 @@ const Projects = () => {
                   <span key={tech} className="project-tech">{tech}</span>
                 ))}
               </div>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link"
-              >
-                View on GitHub →
-              </a>
+              <div className="project-link">
+                Click to view details →
+              </div>
             </motion.div>
           ))}
         </motion.div>
+
+        <ProjectModal
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
       </div>
     </Layout>
   );

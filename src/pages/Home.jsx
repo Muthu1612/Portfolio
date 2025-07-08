@@ -17,9 +17,9 @@ const Home = () => {
           <Hero />
         </section>
 
-        <section id="featured">
+        {/* <section id="featured">
           <FeaturedProject />
-        </section>
+        </section> */}
 
         <section id="timeline">
           <Timeline />

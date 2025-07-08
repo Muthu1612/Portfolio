@@ -77,3 +77,197 @@
 .project-link:hover {
   text-decoration: underline;
 }
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: #1f2937; /* Tailwind gray-800 */
+  border-radius: 0.75rem;
+  max-width: 900px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid #374151; /* Tailwind gray-700 */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #9ca3af; /* Tailwind gray-400 */
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: #374151; /* Tailwind gray-700 */
+  color: #d1d5db; /* Tailwind gray-300 */
+}
+
+.modal-body {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.modal-image {
+  flex: 0 0 300px;
+  max-width: 300px;
+}
+
+.modal-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid #374151; /* Tailwind gray-700 */
+}
+
+.modal-details {
+  flex: 1;
+  color: #d1d5db; /* Tailwind gray-300 */
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #f9fafb; /* Tailwind gray-50 */
+}
+
+.modal-description {
+  font-size: 1rem;
+  color: #9ca3af; /* Tailwind gray-400 */
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.modal-stack h3,
+.modal-features h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #f9fafb; /* Tailwind gray-50 */
+}
+
+.modal-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-tech {
+  background: #374151; /* Tailwind gray-700 */
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  color: #d1d5db; /* Tailwind gray-300 */
+}
+
+.modal-features {
+  margin-bottom: 1.5rem;
+}
+
+.modal-features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-features li {
+  padding: 0.25rem 0;
+  color: #9ca3af; /* Tailwind gray-400 */
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.modal-features li::before {
+  content: "•";
+  color: #2dd4bf; /* Tailwind teal-400 */
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.modal-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #2dd4bf; /* Tailwind teal-400 */
+  color: #0f172a; /* Tailwind slate-900 */
+  text-decoration: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.modal-link:hover {
+  background-color: #14b8a6; /* Tailwind teal-500 */
+  transform: translateY(-1px);
+}
+
+.modal-link.live-link {
+  background-color: #374151; /* Tailwind gray-700 */
+  color: #d1d5db; /* Tailwind gray-300 */
+}
+
+.modal-link.live-link:hover {
+  background-color: #4b5563; /* Tailwind gray-600 */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-body {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .modal-image {
+    flex: none;
+    max-width: 100%;
+  }
+  
+  .modal-content {
+    margin: 1rem;
+    max-height: 90vh;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .modal-link {
+    justify-content: center;
+  }
+}
